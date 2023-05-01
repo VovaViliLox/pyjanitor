@@ -14,6 +14,7 @@ from typing import (
     Pattern,
     Union,
     Callable,
+    NamedTuple,
     Any,
 )
 from pandas.core.dtypes.generic import ABCPandasArray, ABCExtensionArray
@@ -1035,3 +1036,13 @@ def _keep_output(keep: str, left: np.ndarray, right: np.ndarray):
         return grouped.index, grouped.array
     grouped = grouped.max()
     return grouped.index, grouped.array
+
+
+class _tupled(NamedTuple):
+    """
+    Tuple used in `summarize` function
+    """
+
+    col: Any
+    func: Union[str, Callable, list[Union[str, Callable]]]
+    name: Optional[str] = None

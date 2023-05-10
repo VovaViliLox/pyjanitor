@@ -1,5 +1,7 @@
 """Miscellaneous internal PyJanitor helper functions."""
 
+from __future__ import annotations
+
 import functools
 import os
 import sys
